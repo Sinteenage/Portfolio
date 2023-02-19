@@ -16,9 +16,3 @@ root.render(
     <App />
   </Provider>
 );
-
-const el = document.getElementById(selector);
-
-if (el !== null) {
-    root.unmount();
-}
