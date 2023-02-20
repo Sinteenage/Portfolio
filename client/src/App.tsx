@@ -2,6 +2,7 @@ import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { loading } from './portfolio/actions';
+import { About } from './portfolio/components/about/About';
 import { Header } from './portfolio/components/header/Header';
 import { Preloader } from './portfolio/components/preloader/Preloader';
 import { getPreloader } from './portfolio/selectors';
@@ -20,7 +21,12 @@ const App: React.FC = () => {
 
   return (
     <>
-      {(preloader.loading === LoadingState.REQUEST) ? <Preloader /> : <Header />}
+      {(preloader.loading === LoadingState.REQUEST) ? <Preloader /> : 
+        <>
+          <Header />
+          <About />
+        </>
+      }
     </>
   );
 }
