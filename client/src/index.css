@@ -11,12 +11,14 @@
 }
 
 :root {
-  --color-bg: #1f1f38;
+  --color-bg: rgb(50, 80, 111);
   --color-bg-variant: #2c2c6c;
-  --color-primary: #4db5ff;
-  --color-primary-variant: rgba(77, 181, 255, 0.4);
+  --color-primary: rgb(156, 174, 192);
+  --color-primary-variant: rgb(101, 124, 148);
   --color-white: #fff;
   --color-light: rgba(255, 255, 255, 0.6);
+
+  --transition: all 400 ease;
 
   --container-width-lg: 75%;
   --container-width-md: 85%;
@@ -39,4 +41,95 @@ body {
   background-color: var(--color-bg);
   color: var(--color-white);
   line-height: 1.7;
+}
+
+/*====================== General Styles ============================*/
+
+.container {
+  width: var(--container-width-lg);
+  margin: 0px, auto;
+}
+
+h1 {
+  font-size: 80px;
+  margin: 0px;
+  padding: 0px;
+  color: var(--color-bg);
+}
+
+h2 {
+  font-size: 60px;
+  margin: 0px;
+  padding: 0px;
+}
+
+h3 {
+  font-size: 40px;
+  margin: 0px;
+  padding: 0px;
+}
+
+h4 {
+  font-size: 20px;
+  margin: 0px;
+  padding: 0px;
+}
+
+
+section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+a {
+  color: var(--color-primary);
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--color-white);
+}
+
+.btn {
+  width: max-content;
+  display: inline-block;
+  color: var(--color-primary);
+  padding: 15px 5px;
+  border-radius: 15%;
+  cursor: pointer;
+  border: 1px solid var(--color-primary);
+  transition: var(--transition);
+}
+
+.btn:hover {
+  background: var(--color-white);
+  color: var(--color-bg);
+  border-color: transparent;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-bg);
+}
+
+img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+/*======================= Media Queries (Medium) =============================*/
+
+@media screen and (max-width: 1024px) {
+  .container{
+    width: var(--container-width-md);
+  }
+}
+
+/*======================= Media Queries (Small) =============================*/
+
+@media screen and (max-width: 600px) {
+  .container{
+    width: var(--container-width-sd);
+  }
 }

@@ -1,4 +1,30 @@
 header {
+    margin: 0;
     background-color: aliceblue;
-    max-height: 500px;
+    position: relative;
+    width: 100%;
+    height: 500px;
+}
+
+.header__container {
+    text-align: right;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding-right: 150px;
+    padding-left: 150px;
+    padding-top: 100px;
+}
+
+.header__h3 {
+    margin-bottom: -60px;
+    color: var(--color-primary-variant);
+}
+
+.header__h4 {
+    margin-right: 350px;
+    margin-top: -35px;
+    color: var(--color-primary);
 }

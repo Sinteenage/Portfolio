@@ -1,5 +1,7 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 
+import './canvas.css'
+
 type canvasProps = {
     draw: (context: CanvasRenderingContext2D) => void;
 }
