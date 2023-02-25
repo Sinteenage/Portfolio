@@ -9,7 +9,7 @@ type canvasProps = {
 export const Canvas: React.FC<canvasProps> = ({ draw }) => {
 
     const canvasWidth = window.innerWidth;
-    const canvasHeight = 500;
+    const canvasHeight = 400;
 
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
 

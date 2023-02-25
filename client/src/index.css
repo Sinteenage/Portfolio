@@ -20,7 +20,7 @@
 
   --transition: all 400 ease;
 
-  --container-width-lg: 75%;
+  --container-width-lg: 65%;
   --container-width-md: 85%;
   --container-width-ms: 90%;
 }
@@ -47,38 +47,45 @@ body {
 
 .container {
   width: var(--container-width-lg);
-  margin: 0px, auto;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  text-align: center;
+  height: 100%;
 }
 
 h1 {
-  font-size: 80px;
+  font-size: 70px;
   margin: 0px;
   padding: 0px;
   color: var(--color-bg);
 }
 
 h2 {
-  font-size: 60px;
+  font-size: 25px;
+  font-weight: 300;
   margin: 0px;
   padding: 0px;
 }
 
 h3 {
-  font-size: 40px;
-  margin: 0px;
-  padding: 0px;
-}
-
-h4 {
   font-size: 20px;
   margin: 0px;
   padding: 0px;
 }
 
+h4 {
+  font-size: 15px;
+  margin: 0px;
+  padding: 0px;
+}
 
 section {
   text-align: center;
-  margin-top: 20px;
+  margin: 0px;
+  display: block;
+  position: relative;
+  width: 100%;
 }
 
 a {

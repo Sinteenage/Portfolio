@@ -1,30 +1,44 @@
 header {
-    margin: 0;
+    margin: 0px;
     background-color: aliceblue;
     position: relative;
     width: 100%;
-    height: 500px;
+    height: 400px;
 }
 
 .header__container {
-    text-align: right;
+    text-align: center;
     height: 100%;
     position: absolute;
-    left: 0;
-    right: 0;
+    left: 0px;
+    right: 0px;
     margin: auto;
-    padding-right: 150px;
-    padding-left: 150px;
     padding-top: 100px;
 }
 
 .header__h3 {
-    margin-bottom: -60px;
+    margin-left: 350px;
+    margin-bottom: -45px;
     color: var(--color-primary-variant);
 }
 
 .header__h4 {
-    margin-right: 350px;
+    margin-right: 300px;
     margin-top: -35px;
     color: var(--color-primary);
+}
+
+.header__socials {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    bottom: 20px;
+}
+
+.header__socials::after {
+    content: '';
+    width: 15px;
+    height: 1px;
+    background: var(--color-primary);
 }
