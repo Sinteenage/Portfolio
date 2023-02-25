@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 
 import './header.css';
 
@@ -8,15 +8,26 @@ import { Socials } from './Socials';
 
 export const Header: React.FC = () => {
 
-    const width = window.innerWidth;
+    const widthRef = useRef(window.innerWidth);
     const height = 400;
-    let phase = useRef(0);
+    const phase = useRef(0);
+
+    const onChangeWidth = useCallback(() => {
+        widthRef.current = window.innerWidth;
+    }, []);
+
+    useEffect(() => {
+        window.addEventListener('resize', onChangeWidth);
+        return () => {
+            window.removeEventListener('resize', onChangeWidth);
+        };
+    }, [onChangeWidth]);
 
     const drawShineWaveOne = useCallback((context: CanvasRenderingContext2D) => {
 
         drawWave(
             context, 
-            width, 
+            widthRef.current, 
             height, 
             0.003,
             phase.current,
@@ -27,13 +38,13 @@ export const Header: React.FC = () => {
 
         phase.current += 0.005;
 
-    }, [width, phase]);
+    }, []);
 
     const drawShineWaveTwo = useCallback((context: CanvasRenderingContext2D) => {
 
         drawWave(
             context, 
-            width, 
+            widthRef.current, 
             height, 
             0.003,
             phase.current + 5.4,
@@ -44,13 +55,13 @@ export const Header: React.FC = () => {
 
         phase.current += 0.005;
 
-    }, [width, phase]);
+    }, []);
 
     const drawShineWaveThree = useCallback((context: CanvasRenderingContext2D) => {
 
         drawWave(
             context, 
-            width, 
+            widthRef.current, 
             height, 
             0.003,
             phase.current + 4.3,
@@ -61,13 +72,13 @@ export const Header: React.FC = () => {
 
         phase.current += 0.005;
 
-    }, [width, phase]);
+    }, []);
 
     return (
         <header>
-            <Canvas draw={drawShineWaveThree}/>
-            <Canvas draw={drawShineWaveTwo}/>
-            <Canvas draw={drawShineWaveOne}/>
+            <Canvas draw={drawShineWaveThree} height={height}/>
+            <Canvas draw={drawShineWaveTwo} height={height}/>
+            <Canvas draw={drawShineWaveOne} height={height}/>
             <div className="container header__container">
                 <h3 className="header__h3">hello, I'm</h3>
                 <h1>
