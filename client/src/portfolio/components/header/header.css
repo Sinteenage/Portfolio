@@ -1,4 +1,44 @@
 header {
+    margin: 0px;
     background-color: aliceblue;
-    max-height: 500px;
+    position: relative;
+    width: 100%;
+    height: 400px;
+}
+
+.header__container {
+    text-align: center;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    padding-top: 100px;
+}
+
+.header__h3 {
+    margin-left: 350px;
+    margin-bottom: -45px;
+    color: var(--color-primary-variant);
+}
+
+.header__h4 {
+    margin-right: 300px;
+    margin-top: -35px;
+    color: var(--color-primary);
+}
+
+.header__socials {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    bottom: 20px;
+}
+
+.header__socials::after {
+    content: '';
+    width: 15px;
+    height: 1px;
+    background: var(--color-primary);
 }

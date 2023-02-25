@@ -1,46 +1,81 @@
 import React, { useCallback, useRef } from 'react';
 
 import './header.css';
+
 import { Canvas } from '../canvas/Canvas';
+import { drawWave } from '../../utils/drawWave';
+import { Socials } from './Socials';
 
 export const Header: React.FC = () => {
 
-    const canvasWidth = window.innerWidth;
-    const canvasHeight = 500;
-
-    const frequency = 0.004;
+    const width = window.innerWidth;
+    const height = 400;
     let phase = useRef(0);
 
-    const drawShineWave = useCallback((context: CanvasRenderingContext2D) => {
-        context.clearRect(0, 0, canvasWidth, canvasHeight);
-        context.beginPath();
-        context.fillStyle = '#1f1f38';
+    const drawShineWaveOne = useCallback((context: CanvasRenderingContext2D) => {
 
-        for (let x = 0; x < canvasWidth; x++) {
+        drawWave(
+            context, 
+            width, 
+            height, 
+            0.003,
+            phase.current,
+            'rgba(0, 36, 72, 0.3)',
+            0.07,
+            0.12,
+        );
 
-            const amplitude = (canvasWidth - x) * 0.03;
-            const y = (canvasHeight / 2 + amplitude * Math.sin(frequency * x + phase.current)) + x * 0.15;
+        phase.current += 0.005;
 
-            if (x === 0) {
-                context.moveTo(0, canvasHeight);
-                context.lineTo(x, y);
-            } else {
-                context.lineTo(x, y);
-            }
+    }, [width, phase]);
 
-            if(x === canvasWidth - 1){
-                context.lineTo(canvasWidth, canvasHeight);
-            }
-        }
+    const drawShineWaveTwo = useCallback((context: CanvasRenderingContext2D) => {
 
-        context.fill();
+        drawWave(
+            context, 
+            width, 
+            height, 
+            0.003,
+            phase.current + 5.4,
+            'rgba(0, 36, 72, 0.4)',
+            0.07,
+            0.12,
+        );
 
-        phase.current += 0.05; // change this to adjust animation speed
-    }, [canvasWidth]);
+        phase.current += 0.005;
 
-    return ( 
+    }, [width, phase]);
+
+    const drawShineWaveThree = useCallback((context: CanvasRenderingContext2D) => {
+
+        drawWave(
+            context, 
+            width, 
+            height, 
+            0.003,
+            phase.current + 4.3,
+            'rgba(0, 36, 72, 0.5)',
+            0.07,
+            0.12,
+        );
+
+        phase.current += 0.005;
+
+    }, [width, phase]);
+
+    return (
         <header>
-            <Canvas draw={drawShineWave}/>
+            <Canvas draw={drawShineWaveThree}/>
+            <Canvas draw={drawShineWaveTwo}/>
+            <Canvas draw={drawShineWaveOne}/>
+            <div className="container header__container">
+                <h3 className="header__h3">hello, I'm</h3>
+                <h1>
+                    Dmitry Kenev
+                </h1>
+                <h4 className="header__h4">Frontend Developer</h4>
+                <Socials/>
+            </div>
         </header>
     );
 }

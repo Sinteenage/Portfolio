@@ -3,8 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { loading } from './portfolio/actions';
 import { About } from './portfolio/components/about/About';
+import { Contacts } from './portfolio/components/contacts/Contacts';
 import { Header } from './portfolio/components/header/Header';
 import { Preloader } from './portfolio/components/preloader/Preloader';
+import { Work } from './portfolio/components/work/Work';
 import { getPreloader } from './portfolio/selectors';
 import { LoadingState } from './portfolio/types';
 
@@ -25,6 +27,8 @@ const App: React.FC = () => {
         <>
           <Header />
           <About />
+          <Work />
+          <Contacts />
         </>
       }
     </>

@@ -1,12 +1,12 @@
 import React from 'react';
 
-import './about.css';
+import './contacts.css';
 
-export const About: React.FC = () => {
-    return ( 
+export const Contacts: React.FC = () => {
+    return (
         <section>
             <div className='container'>
-                <h2>About</h2>
+                <h2>Contacts</h2>
             </div>
         </section>
     );
