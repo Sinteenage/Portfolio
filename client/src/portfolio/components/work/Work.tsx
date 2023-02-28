@@ -4,7 +4,7 @@ import './work.css';
 
 export const Work: React.FC = () => {
     return (
-        <section>
+        <section id='portfolio'>
             <div className='container'>
                 <h2>Portfolio</h2>
             </div>

@@ -9,7 +9,7 @@ import { Socials } from './Socials';
 export const Header: React.FC = () => {
 
     const widthRef = useRef(window.innerWidth);
-    const height = 400;
+    const height = 350;
     const phase = useRef(0);
 
     const onChangeWidth = useCallback(() => {
@@ -27,13 +27,13 @@ export const Header: React.FC = () => {
 
         drawWave(
             context, 
-            widthRef.current, 
-            height, 
+            widthRef.current,
+            height,
             0.003,
             phase.current,
             'rgba(0, 36, 72, 0.3)',
             0.07,
-            0.12,
+            0.1,
         );
 
         phase.current += 0.005;
@@ -50,7 +50,7 @@ export const Header: React.FC = () => {
             phase.current + 5.4,
             'rgba(0, 36, 72, 0.4)',
             0.07,
-            0.12,
+            0.1,
         );
 
         phase.current += 0.005;
@@ -67,7 +67,7 @@ export const Header: React.FC = () => {
             phase.current + 4.3,
             'rgba(0, 36, 72, 0.5)',
             0.07,
-            0.12,
+            0.1,
         );
 
         phase.current += 0.005;
@@ -76,9 +76,9 @@ export const Header: React.FC = () => {
 
     return (
         <header>
-            <Canvas draw={drawShineWaveThree} height={height}/>
-            <Canvas draw={drawShineWaveTwo} height={height}/>
-            <Canvas draw={drawShineWaveOne} height={height}/>
+            <Canvas height={height} draw={drawShineWaveThree}/>
+            <Canvas height={height} draw={drawShineWaveTwo}/>
+            <Canvas height={height} draw={drawShineWaveOne}/>
             <div className="container header__container">
                 <h3 className="header__h3">hello, I'm</h3>
                 <h1>

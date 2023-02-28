@@ -1,4 +1,8 @@
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, {
+    useCallback,
+    useEffect,
+    useRef
+} from 'react';
 
 import './canvas.css'
 
@@ -17,7 +21,8 @@ export const Canvas: React.FC<canvasProps> = ({ draw, height }) => {
             return;
         }
 
-        canvas.width = window.innerWidth;
+        canvas.width = canvas.clientWidth;
+        canvas.height = canvas.clientHeight;
 
         const context = canvas.getContext('2d');
         if(!context){
@@ -35,7 +40,7 @@ export const Canvas: React.FC<canvasProps> = ({ draw, height }) => {
 
     return ( 
         <>
-            <canvas ref={canvasRef} width={window.innerWidth} height={height}/>
+            <canvas ref={canvasRef} height={height}/>
         </>
     );
 }
