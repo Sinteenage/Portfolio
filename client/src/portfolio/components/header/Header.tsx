@@ -9,7 +9,7 @@ import { Socials } from './Socials';
 export const Header: React.FC = () => {
 
     const widthRef = useRef(window.innerWidth);
-    const height = 350;
+    const height = 600;
     const phase = useRef(0);
 
     const onChangeWidth = useCallback(() => {
@@ -75,16 +75,20 @@ export const Header: React.FC = () => {
     }, []);
 
     return (
-        <header>
+        <header id='home'>
             <Canvas height={height} draw={drawShineWaveThree}/>
             <Canvas height={height} draw={drawShineWaveTwo}/>
             <Canvas height={height} draw={drawShineWaveOne}/>
             <div className="container header__container">
-                <h3 className="header__h3">hello, I'm</h3>
-                <h1>
-                    Dmitry Kenev
-                </h1>
-                <h4 className="header__h4">Frontend Developer</h4>
+                <h3 className="header__h3">Frontend Developer</h3>
+                <div className='header__title'>
+                    <h2 className="header__h2">
+                        Dmitry
+                    </h2>
+                    <h1>
+                        Kenev
+                    </h1>
+                </div>
                 <Socials/>
             </div>
         </header>

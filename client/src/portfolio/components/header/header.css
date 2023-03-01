@@ -1,9 +1,13 @@
 header {
     margin: 0px;
-    background-color: aliceblue;
+    background-image: radial-gradient(
+        farthest-corner at 100% 40px,
+        rgb(255, 255, 255) 10%,
+        rgb(0, 175, 202) 50%
+    );
     position: relative;
     width: 100%;
-    height: 350px;
+    height: 100vh;
 }
 
 .header__container {
@@ -13,26 +17,55 @@ header {
     left: 0px;
     right: 0px;
     margin: auto;
-    padding-top: 100px;
+    padding-top: 50px;
 }
 
-.header__h3 {
-    margin-left: 350px;
-    margin-bottom: -45px;
+.header__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+h1 {
+    font-size: 50px;
+    font-weight: 400;
+    text-transform: uppercase;
+    white-space: nowrap;
+    letter-spacing: 12px;
+    margin: 0px;
+    padding: 0px;
     color: var(--color-primary-variant);
 }
 
-.header__h4 {
-    margin-right: 300px;
-    margin-top: -35px;
-    color: var(--color-primary);
+.header__h2 {
+    margin: 0;
+    font-size: 50px;
+    font-weight: 800;
+    white-space: nowrap;
+    letter-spacing: 12px;
+    text-transform: uppercase;
+    color: rgb(211, 231, 246);
+}
+
+.header__h3 {
+    text-transform: uppercase;
+    white-space: nowrap;
+    font-weight: 500;
+    letter-spacing: 5px;
+    margin-top: 100px;
+    margin-bottom: -15px;
+    color: var(--color-primary-variant);
 }
 
 .header__socials {
-    position: absolute;
+    width: 100%;
+    position: relative;
+    margin-top: 10px;
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
     bottom: 20px;
 }
 
@@ -40,5 +73,49 @@ header {
     content: '';
     width: 15px;
     height: 1px;
-    background: var(--color-primary);
+    background: var(--color-primary-variant);
+}
+
+.header__socials::before {
+    content: '';
+    width: 15px;
+    height: 1px;
+    background: var(--color-primary-variant);
+}
+
+.header__socials a {
+    color: var(--color-primary-variant);
+    font-size: 25px;
+}
+
+.header__socials a:hover {
+    color: rgb(211, 231, 246);
+}
+
+@media screen and (max-width: 1024px ){
+    h1 {
+        font-size: 40px;
+    }
+    
+    .header__h2 {
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 600px ){
+    h1 {
+        font-size: 20px;
+        font-weight: 300;
+    }
+    
+    .header__h2 {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .header__h3 {
+        font-size: 15px;
+        font-weight: 400;
+        margin-top: 0px;
+    }
 }
