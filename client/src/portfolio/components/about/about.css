@@ -30,7 +30,14 @@
 .about__card {
     background: var(--color-bg-variant);
     border-radius: 10px;
+    border: 1px solid transparent;
     padding: 25px 15px;
+    transition: var(--transition);
+}
+
+.about__card:hover {
+    background: transparent;
+    border-color: var(--color-primary);
 }
 
 .about__icon {

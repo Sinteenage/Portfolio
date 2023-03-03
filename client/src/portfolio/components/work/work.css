@@ -1,0 +1,41 @@
+.container__portfolio {
+    padding-top: 50px;
+}
+
+.work__items {
+    margin: 50px 0px 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+li {
+    background: var(--color-bg-variant);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.work__image_container {
+    margin-top: 15px;
+    width: 100%;
+    position: absolute;
+    display: grid;
+    place-items: center;
+}
+
+.work__image {
+    width: 70%;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.work__image:hover {
+    width: 90%;
+}
+
+.work__description {
+    margin-top: 180px;
+    margin-bottom: 15px;
+}

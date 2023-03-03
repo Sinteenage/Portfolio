@@ -18,7 +18,7 @@
   --color-white: #fff;
   --color-light: rgba(255, 255, 255, 0.7);
 
-  --transition: all 400 ease;
+  --transition: all 400ms ease;
 
   --container-width-lg: 65%;
   --container-width-md: 85%;
@@ -60,7 +60,6 @@ h2 {
   white-space: nowrap;
   letter-spacing: 5px;
   text-transform: uppercase;
-  margin: 20px;
   padding: 0px;
   color: var(--color-primary);
 }
@@ -88,7 +87,6 @@ p {
 
 section {
   text-align: center;
-  margin: 0px;
   z-index: 1;
   background: var(--color-bg);
   display: block;

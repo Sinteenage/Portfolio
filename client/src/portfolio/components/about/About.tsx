@@ -12,23 +12,23 @@ export const About: React.FC = () => {
         <section id='about'>
             <div className='container'>
                 <h2>About Me</h2>
-                <div className="about__container">
-                    <div className="about__me">
-                        <img src={Me} alt="About" />
+                <div className='about__container'>
+                    <div className='about__me'>
+                        <img src={Me} alt='About' />
                     </div>
-                    <div className="about__content">
-                        <div className="about__cards">
-                            <article className="about__card">
+                    <div className='about__content'>
+                        <div className='about__cards'>
+                            <article className='about__card'>
                                 <TbAward className='about__icon'/>
                                 <h5>Experience</h5>
                                 <small>15+ Years Programming</small>
                             </article>
-                            <article className="about__card">
+                            <article className='about__card'>
                                 <HiOutlineBuildingOffice2 className='about__icon'/>
                                 <h5>Work</h5>
                                 <small>7+ Years Corporate Work</small>
                             </article>
-                            <article className="about__card">
+                            <article className='about__card'>
                                 <TfiCup className='about__icon'/>
                                 <h5>Projects</h5>
                                 <small>35+ Social Games Done</small>

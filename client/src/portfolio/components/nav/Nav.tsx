@@ -10,7 +10,7 @@ import './nav.css';
 
 export const Nav: React.FC = () => {
 
-    const [activeNav, setActiveNav] = useState('#');
+    const [activeNav, setActiveNav] = useState('#home');
 
     return (
         <nav>
