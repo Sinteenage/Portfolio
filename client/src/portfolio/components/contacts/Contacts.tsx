@@ -4,7 +4,7 @@ import './contacts.css';
 
 export const Contacts: React.FC = () => {
     return (
-        <section>
+        <section id='contacts'>
             <div className='container'>
                 <h2>Contacts</h2>
             </div>

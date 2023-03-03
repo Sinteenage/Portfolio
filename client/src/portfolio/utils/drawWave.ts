@@ -1,7 +1,7 @@
 export const drawWave = (
         context: CanvasRenderingContext2D, 
-        width: number, 
-        height: number, 
+        width: number,
+        height: number,
         frequency: number, 
         phase: number,
         color: string,

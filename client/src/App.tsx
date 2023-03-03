@@ -5,6 +5,7 @@ import { loading } from './portfolio/actions';
 import { About } from './portfolio/components/about/About';
 import { Contacts } from './portfolio/components/contacts/Contacts';
 import { Header } from './portfolio/components/header/Header';
+import { Nav } from './portfolio/components/nav/Nav';
 import { Preloader } from './portfolio/components/preloader/Preloader';
 import { Work } from './portfolio/components/work/Work';
 import { getPreloader } from './portfolio/selectors';
@@ -26,6 +27,7 @@ const App: React.FC = () => {
       {(preloader.loading === LoadingState.REQUEST) ? <Preloader /> : 
         <>
           <Header />
+          <Nav/>
           <About />
           <Work />
           <Contacts />
