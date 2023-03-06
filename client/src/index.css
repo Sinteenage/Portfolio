@@ -12,7 +12,7 @@
 
 :root {
   --color-bg: rgb(0, 65, 99);
-  --color-bg-variant: rgba(159, 160, 112, 0.3);
+  --color-bg-variant: rgb(0, 94, 126);
   --color-primary: rgb(156, 174, 192);
   --color-primary-variant: rgb(101, 124, 148);
   --color-white: #fff;
@@ -50,6 +50,7 @@ body {
   left: 0px;
   right: 0px;
   margin: auto;
+  padding-top: 50px;
   text-align: center;
   height: 100%;
 }
@@ -79,10 +80,10 @@ h4 {
 
 p {
   text-align: left;
-  margin-top: 15px;
+  margin-top: 12px;
   font-size: 15px;
   font-weight: 100;
-  line-height: 20px;
+  line-height: 18px;
 }
 
 section {

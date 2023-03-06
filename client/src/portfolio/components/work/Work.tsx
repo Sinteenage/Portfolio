@@ -10,7 +10,7 @@ export const Work: React.FC = () => {
 
     return (
         <section id='portfolio'>
-            <div className='container container__portfolio'>
+            <div className='container'>
                 <h2>Portfolio</h2>
                 <ul className='work__items'>
                     {workItems.map((item, index) => {

@@ -1,42 +1,39 @@
 import React from 'react';
-import {TbAward} from 'react-icons/tb';
-import {HiOutlineBuildingOffice2} from 'react-icons/hi2';
-import {TfiCup} from 'react-icons/tfi';
 
 import Me from '../../../assets/placeholder-man.jpg';
 
 import './about.css';
 
 export const About: React.FC = () => {
+
+    const aboutCards = [
+        {id: 1, title: '15+', text: 'Years Programming'}, 
+        {id: 2, title: '7+', text: 'Years Corporate Work'}, 
+        {id: 3, title: '40+', text: 'Projects Done'}
+    ];
+
     return ( 
         <section id='about'>
             <div className='container'>
-                <h2>About Me</h2>
+                <h2>About</h2>
                 <div className='about__container'>
                     <div className='about__me'>
                         <img src={Me} alt='About' />
                     </div>
                     <div className='about__content'>
-                        <div className='about__cards'>
-                            <article className='about__card'>
-                                <TbAward className='about__icon'/>
-                                <h5>Experience</h5>
-                                <small>15+ Years Programming</small>
-                            </article>
-                            <article className='about__card'>
-                                <HiOutlineBuildingOffice2 className='about__icon'/>
-                                <h5>Work</h5>
-                                <small>7+ Years Corporate Work</small>
-                            </article>
-                            <article className='about__card'>
-                                <TfiCup className='about__icon'/>
-                                <h5>Projects</h5>
-                                <small>35+ Social Games Done</small>
-                            </article>
-                        </div>
-                        <p>
-                                I am a programmer with extensive experience in corporate development. 
-                            Started my programming journey 15 years ago with a focus on ActionScript3. 
+                        <ul className='about__cards'>
+                            {
+                                aboutCards.map((item) => {
+                                    return <li key={item.id} className='about__card'>
+                                        <div className='about__title'>{item.title}</div>
+                                        <small>{item.text}</small>
+                                    </li>
+                                })
+                            }
+                        </ul>
+                        <h5>I am a programmer with extensive experience in corporate development.</h5>
+                        <p> 
+                                Started my programming journey 15 years ago with a focus on ActionScript3. 
                             Have a passion for programming and an innate curiosity to explore different 
                             possibilities that programming offers.   
                         </p>
