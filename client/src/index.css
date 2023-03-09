@@ -93,6 +93,7 @@ section {
   display: block;
   position: relative;
   width: 100%;
+  height: 100vh;
 }
 
 a {
@@ -106,11 +107,13 @@ a:hover {
 
 .btn {
   width: max-content;
+  height: 30px;
   display: inline-block;
-  color: var(--color-primary);
-  padding: 15px 5px;
-  border-radius: 15%;
+  color: var(--color-primary-variant);
+  padding: 5px 20px;
+  border-radius: 5px;
   cursor: pointer;
+  line-height: 18px;
   border: 1px solid var(--color-primary);
   transition: var(--transition);
 }
@@ -149,5 +152,9 @@ img {
 
   h2 {
     font-size: 15px;
+  }
+
+  section {
+    height: max-content;
   }
 }

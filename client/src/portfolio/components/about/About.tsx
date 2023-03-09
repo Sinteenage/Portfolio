@@ -3,13 +3,14 @@ import React from 'react';
 import Me from '../../../assets/placeholder-man.jpg';
 
 import './about.css';
+import { AboutCard } from './AboutCard';
 
 export const About: React.FC = () => {
 
     const aboutCards = [
-        {id: 1, title: '15+', text: 'Years Programming'}, 
-        {id: 2, title: '7+', text: 'Years Corporate Work'}, 
-        {id: 3, title: '40+', text: 'Projects Done'}
+        {id: 'a1', title: '15+', text: 'Years Programming'}, 
+        {id: 'a2', title: '7+', text: 'Years Corporate Work'}, 
+        {id: 'a3', title: '40+', text: 'Projects Done'}
     ];
 
     return ( 
@@ -24,10 +25,7 @@ export const About: React.FC = () => {
                         <ul className='about__cards'>
                             {
                                 aboutCards.map((item) => {
-                                    return <li key={item.id} className='about__card'>
-                                        <div className='about__title'>{item.title}</div>
-                                        <small>{item.text}</small>
-                                    </li>
+                                    return <AboutCard key={item.id} title={item.title} text={item.text}/>
                                 })
                             }
                         </ul>

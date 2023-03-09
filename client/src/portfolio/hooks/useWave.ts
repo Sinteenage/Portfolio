@@ -1,7 +1,7 @@
-import { MutableRefObject, useCallback, useRef } from "react";
-import { WaveProps } from "../types";
+import { MutableRefObject, useCallback, useRef } from 'react';
+import { WaveProps } from '../types';
 
-import { drawWave } from "../utils/drawWave";
+import { drawWave } from '../utils/drawWave';
 
 export function useWave(
         widthRef: MutableRefObject<number>, 

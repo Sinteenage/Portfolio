@@ -6,12 +6,12 @@ import React, {
 
 import './canvas.css'
 
-type canvasProps = {
+type CanvasProps = {
     draw: (context: CanvasRenderingContext2D) => void;
     height: number;
 }
 
-export const Canvas: React.FC<canvasProps> = ({ draw, height }) => {
+export const Canvas: React.FC<CanvasProps> = ({ draw, height }) => {
 
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
 

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loading } from './portfolio/actions';
 import { About } from './portfolio/components/about/About';
 import { Contacts } from './portfolio/components/contacts/Contacts';
+import { Footer } from './portfolio/components/footer/Footer';
 import { Header } from './portfolio/components/header/Header';
 import { Nav } from './portfolio/components/nav/Nav';
 import { Preloader } from './portfolio/components/preloader/Preloader';
@@ -26,11 +27,12 @@ const App: React.FC = () => {
     <>
       {(preloader.loading === LoadingState.REQUEST) ? <Preloader /> : 
         <>
-          <Header />
+          <Header/>
           <Nav/>
-          <About />
-          <Work />
-          <Contacts />
+          <About/>
+          <Work/>
+          <Contacts/>
+          <Footer/>
         </>
       }
     </>

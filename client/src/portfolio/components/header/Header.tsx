@@ -34,15 +34,10 @@ export const Header: React.FC = () => {
             {waves.map((item, index) => {
                 return <Canvas key={index} height={height} draw={item}/>
             })}
-            <div className="container header__container">
-                <h3 className="header__h3">Frontend Developer</h3>
+            <div className='container header__container'>
+                <h3 className='header__h3'>Web Developer</h3>
                 <div className='header__title'>
-                    <h2 className="header__h2">
-                        Dmitry
-                    </h2>
-                    <h1>
-                        Kenev
-                    </h1>
+                    <h1><span className='header__span'>Dmitry</span>Kenev</h1>
                 </div>
                 <Socials/>
             </div>
