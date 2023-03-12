@@ -16,17 +16,27 @@ nav {
     backdrop-filter: blur(15px);
 }
 
-nav a {
+nav button {
     color: rgba(255, 255, 255, 0.4);
     display: flex;
     align-items: center;
     font-size: 25px;
+    background: transparent;
+    transition: var(--transition);
 }
 
-nav a:hover {
+nav button:hover {
     color: var(--color-white);
 }
 
-nav a.active {
+nav button.active {
     color: var(--color-white);
+}
+
+.container__smooth-sclroll {
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    overflow: hidden;
 }

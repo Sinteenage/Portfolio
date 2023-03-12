@@ -6,7 +6,7 @@ import { Footer } from '../footer/Footer';
 import { Header } from '../header/Header';
 import { Work } from '../work/Work';
 
-import './scroll.css';
+import './nav.css';
 
 export const ScrollWrapper: React.FC = () => {
 
@@ -17,7 +17,8 @@ export const ScrollWrapper: React.FC = () => {
     const offsetRef = useRef(0);
 
     const smoothScroll = useCallback(() => {
-        offsetRef.current += (window.pageYOffset - offsetRef.current) * speed;
+
+        offsetRef.current += (window.scrollY - offsetRef.current) * speed;
 
         let scroll = 'translateY(-' + offsetRef.current + 'px) translateZ(0)';
 
@@ -34,9 +35,6 @@ export const ScrollWrapper: React.FC = () => {
         }
 
         body.style.height = Math.floor(heightRef.current) + 'px';
-
-        console.log('height: ' + heightRef.current);
-        console.log('wrapper: ' + wrapperRef.current);
 
         smoothScroll();
     }, [smoothScroll, body.style]);
