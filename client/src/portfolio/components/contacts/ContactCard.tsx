@@ -18,4 +18,4 @@ export const ContactCard: React.FC<ContactCardProps> = ({ title, text, contactHr
             <a href={contactHref} target={'_blank'} rel='noreferrer'>{titleHref}</a>
         </li>
     );
-}
+};

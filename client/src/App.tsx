@@ -6,21 +6,20 @@ import { Nav } from './portfolio/components/nav/Nav';
 import { ScrollWrapper } from './portfolio/components/nav/SmoothScroll';
 
 const App: React.FC = () => {
-
-  const dispatch = useDispatch();
+    const dispatch = useDispatch();
   
-  const initRequest = useCallback(() => {
-    dispatch(loading.request());
-  }, [dispatch]);
+    const initRequest = useCallback(() => {
+        dispatch(loading.request());
+    }, [dispatch]);
 
-  useEffect(() => initRequest(), [initRequest]);
+    useEffect(() => initRequest(), [initRequest]);
 
-  return (
-    <>
-      <ScrollWrapper/>
-      <Nav/>
-    </>
-  );
-}
+    return (
+        <>
+            <ScrollWrapper/>
+            <Nav/>
+        </>
+    );
+};
 
 export default App;

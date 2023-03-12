@@ -9,7 +9,7 @@ export const Contacts: React.FC = () => {
     const contacts = [
         {id: 'c1', title: 'Email', text:'sinteenage@gmail.com', contactHref: 'mailto:sinteenage@gmail.com', titleHref: 'Send Message'},
         {id: 'c2', title: 'Telephone', text:'+38 095-771-92-56', contactHref: 'tel:+380957719256', titleHref: 'Call'},
-        {id: 'c3', title: 'WhatsApp', text:'+38 095-771-92-56', contactHref: 'https://api.whatsapp.com/send?phone=+380957719256', titleHref: 'Send Message'}
+        {id: 'c3', title: 'WhatsApp', text:'+38 095-771-92-56', contactHref: 'https://api.whatsapp.com/send?phone=+380957719256', titleHref: 'Send Message'},
     ];
 
     return (
@@ -26,7 +26,7 @@ export const Contacts: React.FC = () => {
                                     text={item.text}
                                     contactHref={item.contactHref}
                                     titleHref={item.titleHref}
-                                />
+                                />;
                             })
                         }
                     </ul>
@@ -40,4 +40,4 @@ export const Contacts: React.FC = () => {
             </div>
         </section>
     );
-}
+};

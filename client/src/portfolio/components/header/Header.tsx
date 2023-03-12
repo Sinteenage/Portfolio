@@ -26,13 +26,13 @@ export const Header: React.FC = () => {
     const waves = [
         useWave(widthRef, height, waveThree), 
         useWave(widthRef, height, waveTwo), 
-        useWave(widthRef, height, waveOne)
+        useWave(widthRef, height, waveOne),
     ];
 
     return (
         <header id='home'>
             {waves.map((item, index) => {
-                return <Canvas key={index} height={height} draw={item}/>
+                return <Canvas key={index} height={height} draw={item}/>;
             })}
             <div className='container header__container'>
                 <h3 className='header__h3'>Web Developer</h3>
@@ -43,4 +43,4 @@ export const Header: React.FC = () => {
             </div>
         </header>
     );
-}
+};

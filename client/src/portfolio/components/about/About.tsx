@@ -10,7 +10,7 @@ export const About: React.FC = () => {
     const aboutCards = [
         {id: 'a1', title: '15+', text: 'Years Programming'}, 
         {id: 'a2', title: '7+', text: 'Years Corporate Work'}, 
-        {id: 'a3', title: '40+', text: 'Projects Done'}
+        {id: 'a3', title: '40+', text: 'Projects Done'},
     ];
 
     return ( 
@@ -25,7 +25,7 @@ export const About: React.FC = () => {
                         <ul className='about__cards'>
                             {
                                 aboutCards.map((item) => {
-                                    return <AboutCard key={item.id} title={item.title} text={item.text}/>
+                                    return <AboutCard key={item.id} title={item.title} text={item.text}/>;
                                 })
                             }
                         </ul>
@@ -57,4 +57,4 @@ export const About: React.FC = () => {
             </div>
         </section>
     );
-}
+};

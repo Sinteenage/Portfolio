@@ -20,7 +20,7 @@ export const ScrollWrapper: React.FC = () => {
 
         offsetRef.current += (window.scrollY - offsetRef.current) * speed;
 
-        let scroll = 'translateY(-' + offsetRef.current + 'px) translateZ(0)';
+        const scroll = 'translateY(-' + offsetRef.current + 'px) translateZ(0)';
 
         if(wrapperRef.current){
             wrapperRef.current.style.transform = scroll;
@@ -48,4 +48,4 @@ export const ScrollWrapper: React.FC = () => {
             <Footer/>
         </div>
     );
-}
+};

@@ -9,11 +9,11 @@ import { store } from './store';
 const selector = 'root';
 
 const root = ReactDOM.createRoot(
-  document.getElementById(selector) as HTMLElement
+    document.getElementById(selector) as HTMLElement,
 );
 
 root.render(
-  <Provider store={store}>
-    <App />
-  </Provider>
+    <Provider store={store}>
+        <App />
+    </Provider>,
 );

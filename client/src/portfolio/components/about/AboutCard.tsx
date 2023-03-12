@@ -15,4 +15,4 @@ export const AboutCard: React.FC<AboutCardProps> = ({ title, text }) => {
             <small>{text}</small>
         </li>
     );
-}
+};

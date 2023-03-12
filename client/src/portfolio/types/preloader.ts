@@ -3,8 +3,8 @@ export interface PreloaderInitialState {
 }
 
 export const enum LoadingState {
-    IDLE = "IDLE",
-    REQUEST = "REQUEST",
-    SUCCESS = "DONE",
-    FAILURE = "FAILURE"
+    IDLE = 'IDLE',
+    REQUEST = 'REQUEST',
+    SUCCESS = 'DONE',
+    FAILURE = 'FAILURE'
 }

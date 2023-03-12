@@ -1,13 +1,13 @@
 export const drawWave = (
-        context: CanvasRenderingContext2D, 
-        width: number,
-        height: number,
-        frequency: number, 
-        phase: number,
-        color: string,
-        amplitude: number,
-        corner: number,
-    ) => {
+    context: CanvasRenderingContext2D, 
+    width: number,
+    height: number,
+    frequency: number, 
+    phase: number,
+    color: string,
+    amplitude: number,
+    corner: number,
+) => {
     context.clearRect(0, 0, width, height);
     context.beginPath();
     context.fillStyle = color;
@@ -30,4 +30,4 @@ export const drawWave = (
     }
 
     context.fill();
-}
+};

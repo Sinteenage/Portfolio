@@ -3,8 +3,8 @@ import {
     FiBook,
     FiHome,
     FiUser,
-    FiMessageSquare
-} from 'react-icons/fi'
+    FiMessageSquare,
+} from 'react-icons/fi';
 
 import './nav.css';
 
@@ -37,4 +37,4 @@ export const Nav: React.FC = () => {
             ><FiMessageSquare/></button>
         </nav>
     );
-}
+};

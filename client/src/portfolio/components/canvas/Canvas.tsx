@@ -1,10 +1,10 @@
 import React, {
     useCallback,
     useEffect,
-    useRef
+    useRef,
 } from 'react';
 
-import './canvas.css'
+import './canvas.css';
 
 type CanvasProps = {
     draw: (context: CanvasRenderingContext2D) => void;
@@ -43,4 +43,4 @@ export const Canvas: React.FC<CanvasProps> = ({ draw, height }) => {
             <canvas ref={canvasRef} height={height}/>
         </>
     );
-}
+};

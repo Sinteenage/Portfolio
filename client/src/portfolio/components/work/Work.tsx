@@ -22,10 +22,10 @@ export const Work: React.FC = () => {
                             text={'Description'}
                             imgSrc={item}
                             workHref={''}
-                        />
+                        />;
                     })}
                 </ul>
             </div>
         </section>
     );
-}
+};

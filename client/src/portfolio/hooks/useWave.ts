@@ -4,16 +4,16 @@ import { WaveProps } from '../types';
 import { drawWave } from '../utils/drawWave';
 
 export function useWave(
-        widthRef: MutableRefObject<number>, 
-        height: number,
-        waveProps: WaveProps
-    ): (context: CanvasRenderingContext2D) => void {
+    widthRef: MutableRefObject<number>, 
+    height: number,
+    waveProps: WaveProps,
+): (context: CanvasRenderingContext2D) => void {
     const phaseRef = useRef(0);
     const { freqancy, phaseCorection, color, amplitude, angle } = waveProps;
 
     return useCallback((
-        context: CanvasRenderingContext2D
-        ) => {
+        context: CanvasRenderingContext2D,
+    ) => {
 
         drawWave(
             context, 
