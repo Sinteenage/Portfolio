@@ -1,0 +1,9 @@
+.section__footer {
+    background: rgb(27, 39, 69);
+}
+
+.container__footer {
+    padding: 20px 0px;
+    display: flex;
+    justify-content: left;
+}

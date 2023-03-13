@@ -1,17 +1,17 @@
 import React, {
     useCallback,
     useEffect,
-    useRef
+    useRef,
 } from 'react';
 
-import './canvas.css'
+import './canvas.css';
 
-type canvasProps = {
+type CanvasProps = {
     draw: (context: CanvasRenderingContext2D) => void;
     height: number;
 }
 
-export const Canvas: React.FC<canvasProps> = ({ draw, height }) => {
+export const Canvas: React.FC<CanvasProps> = ({ draw, height }) => {
 
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
@@ -22,7 +22,6 @@ export const Canvas: React.FC<canvasProps> = ({ draw, height }) => {
         }
 
         canvas.width = canvas.clientWidth;
-        canvas.height = canvas.clientHeight;
 
         const context = canvas.getContext('2d');
         if(!context){
@@ -43,4 +42,4 @@ export const Canvas: React.FC<canvasProps> = ({ draw, height }) => {
             <canvas ref={canvasRef} height={height}/>
         </>
     );
-}
+};

@@ -1,4 +1,4 @@
-import { createAsyncAction } from "typesafe-actions";
+import { createAsyncAction } from 'typesafe-actions';
 
 export const loading = createAsyncAction(
     'portfolio/preloader/LOADING_REQUEST',

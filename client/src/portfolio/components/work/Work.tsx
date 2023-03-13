@@ -4,30 +4,28 @@ import Img1 from '../../../assets/placeholder-image.jpg';
 
 import './work.css';
 
+import { WorkCard } from './WorkCard';
+
 export const Work: React.FC = () => {
 
     const workItems = [Img1, Img1, Img1, Img1, Img1, Img1];
 
     return (
         <section id='portfolio'>
-            <div className='container container__portfolio'>
+            <div className='container'>
                 <h2>Portfolio</h2>
                 <ul className='work__items'>
                     {workItems.map((item, index) => {
-                        return <li key={index} className='worck__item'>{
-                            <>
-                                <div className='work__image_container'>
-                                    <img className='work__image' src={item} alt="item work" />
-                                </div>
-                                <div className='work__description'>
-                                    <h5>Work {index}</h5>
-                                    <small>Some about work</small>
-                                </div>
-                            </>
-                        }</li>;
+                        return <WorkCard 
+                            key={index}
+                            title={'Title'}
+                            text={'Description'}
+                            imgSrc={item}
+                            workHref={''}
+                        />;
                     })}
                 </ul>
             </div>
         </section>
     );
-}
+};

@@ -33,13 +33,11 @@ h1 {
     text-transform: uppercase;
     white-space: nowrap;
     letter-spacing: 12px;
-    margin: 0px;
     padding: 0px;
     color: var(--color-primary-variant);
 }
 
-.header__h2 {
-    margin: 0;
+.header__span {
     font-size: 50px;
     font-weight: 800;
     white-space: nowrap;
@@ -85,7 +83,7 @@ h1 {
 
 .header__socials a {
     color: var(--color-primary-variant);
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .header__socials a:hover {
@@ -97,7 +95,7 @@ h1 {
         font-size: 40px;
     }
     
-    .header__h2 {
+    .header__span {
         font-size: 40px;
     }
 }
@@ -106,9 +104,10 @@ h1 {
     h1 {
         font-size: 20px;
         font-weight: 300;
+        margin: 5px;
     }
     
-    .header__h2 {
+    .header__span {
         font-size: 20px;
         font-weight: 600;
     }
