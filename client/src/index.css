@@ -141,6 +141,10 @@ img {
   .container{
     width: var(--container-width-md);
   }
+
+  section {
+    height: max-content;
+  }
 }
 
 /*======================= Media Queries (Small) =============================*/

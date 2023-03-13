@@ -16,6 +16,14 @@ export const ScrollWrapper: React.FC = () => {
     const heightRef = useRef(0);
     const offsetRef = useRef(0);
 
+    const onResizeWindow = useCallback(() => {
+        if(wrapperRef.current) {
+            heightRef.current = wrapperRef.current.getBoundingClientRect().height - 1;
+        }
+
+        body.style.height = Math.floor(heightRef.current) + 'px';
+    }, [body.style]);
+
     const smoothScroll = useCallback(() => {
 
         offsetRef.current += (window.scrollY - offsetRef.current) * speed;
@@ -37,7 +45,13 @@ export const ScrollWrapper: React.FC = () => {
         body.style.height = Math.floor(heightRef.current) + 'px';
 
         smoothScroll();
-    }, [smoothScroll, body.style]);
+
+        window.addEventListener('resize', onResizeWindow);
+
+        return () => {
+            window.removeEventListener('resize', onResizeWindow);
+        };
+    }, [smoothScroll, body.style, onResizeWindow]);
 
     return (
         <div ref={wrapperRef} className='container__smooth-sclroll'>

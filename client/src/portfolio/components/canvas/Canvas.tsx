@@ -22,7 +22,6 @@ export const Canvas: React.FC<CanvasProps> = ({ draw, height }) => {
         }
 
         canvas.width = canvas.clientWidth;
-        canvas.height = canvas.clientHeight;
 
         const context = canvas.getContext('2d');
         if(!context){

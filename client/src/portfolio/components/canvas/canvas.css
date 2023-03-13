@@ -1,6 +1,7 @@
 canvas {
-    margin-top: calc(100vh - 595px);
+    margin: 0px;
     position: absolute;
     display: block;
     width: 100%;
+    bottom: -5px;
 }
