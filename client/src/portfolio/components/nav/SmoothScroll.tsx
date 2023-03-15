@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useRef } from 'react';
+import { useResize } from '../../hooks/useResize';
 
 import { About } from '../about/About';
 import { Contacts } from '../contacts/Contacts';
@@ -15,14 +16,7 @@ export const ScrollWrapper: React.FC = () => {
     const speed = 0.04;
     const heightRef = useRef(0);
     const offsetRef = useRef(0);
-
-    const onResizeWindow = useCallback(() => {
-        if(wrapperRef.current) {
-            heightRef.current = wrapperRef.current.getBoundingClientRect().height - 1;
-        }
-
-        body.style.height = Math.floor(heightRef.current) + 'px';
-    }, [body.style]);
+    const { width } = useResize();
 
     const smoothScroll = useCallback(() => {
 
@@ -44,14 +38,11 @@ export const ScrollWrapper: React.FC = () => {
 
         body.style.height = Math.floor(heightRef.current) + 'px';
 
+    }, [body.style, width]);
+
+    useEffect(() => {
         smoothScroll();
-
-        window.addEventListener('resize', onResizeWindow);
-
-        return () => {
-            window.removeEventListener('resize', onResizeWindow);
-        };
-    }, [smoothScroll, body.style, onResizeWindow]);
+    }, [smoothScroll]);
 
     return (
         <div ref={wrapperRef} className='container__smooth-sclroll'>

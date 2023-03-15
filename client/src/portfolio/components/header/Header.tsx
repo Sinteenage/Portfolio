@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import './header.css';
 
@@ -6,22 +6,18 @@ import { Canvas } from '../canvas/Canvas';
 import { Socials } from './Socials';
 import { useWave } from '../../hooks/useWave';
 import { waveOne, waveThree, waveTwo } from '../../types';
+import { useResize } from '../../hooks/useResize';
 
 export const Header: React.FC = () => {
 
     const widthRef = useRef(window.innerWidth);
     const height = 600;
 
-    const onChangeWidth = useCallback(() => {
-        widthRef.current = window.innerWidth;
-    }, []);
+    const { width } = useResize();
 
     useEffect(() => {
-        window.addEventListener('resize', onChangeWidth);
-        return () => {
-            window.removeEventListener('resize', onChangeWidth);
-        };
-    }, [onChangeWidth]);
+        widthRef.current = width;
+    }, [width]);
 
     const waves = [
         useWave(widthRef, height, waveThree), 

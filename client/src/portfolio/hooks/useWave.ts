@@ -3,11 +3,11 @@ import { WaveProps } from '../types';
 
 import { drawWave } from '../utils/drawWave';
 
-export function useWave(
+export const useWave = (
     widthRef: MutableRefObject<number>, 
     height: number,
     waveProps: WaveProps,
-): (context: CanvasRenderingContext2D) => void {
+): (context: CanvasRenderingContext2D) => void => {
     const phaseRef = useRef(0);
     const { freqancy, phaseCorection, color, amplitude, angle } = waveProps;
 

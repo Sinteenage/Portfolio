@@ -6,7 +6,7 @@ import {
     FiMessageSquare,
 } from 'react-icons/fi';
 
-interface Section {
+export interface Section {
     key: string,
     id: string,
     position: number,

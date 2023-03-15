@@ -1,5 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
+import { useISObserver } from '../../hooks/useISObserver';
+import { useResize } from '../../hooks/useResize';
 import { sections } from '../../types';
 
 import './nav.css';
@@ -7,59 +9,25 @@ import './nav.css';
 export const Nav: React.FC = () => {
 
     const [activeNav, setActiveNav] = useState('#home');
+    const { width } = useResize();
+    const activeId = useISObserver(sections);
 
-    const onChangeSection = useCallback((activeNav: string, position: number) => {
-        setActiveNav(activeNav);
+    const onChangeSection = useCallback((elementId: string, position: number) => {
+        setActiveNav(elementId);
         window.scrollTo(0, position);
     }, []);
 
-    const onResizeWindow = useCallback(() => {
+    useEffect(() => {
         sections.forEach((item) => {
             const element = document.getElementById(item.id);
-            if(element) {
-                item.position = element.getBoundingClientRect().y + window.scrollY;
-            }
+
+            element && (item.position = element.offsetTop);
         });
-    }, []);
+    }, [width]);
 
     useEffect(() => {
-        window.addEventListener('resize', onResizeWindow);
-
-        return () => {
-            window.removeEventListener('resize', onResizeWindow);
-        };
-    }, [onResizeWindow]);
-
-    useEffect(() => {
-
-        const observer = new IntersectionObserver((entries) => {
-            
-            entries.forEach((entry) => {
-                if(entry.isIntersecting) {
-                    setActiveNav(`#${entry.target.id}`);
-                }
-            });
-        }, {
-            threshold: 0.5,
-        });
-
-        sections.forEach((item) => {
-            const element = document.getElementById(item.id);
-            if(element) {
-                observer.observe(element);
-                item.position = element.getBoundingClientRect().y + window.scrollY;
-            }
-        });
-
-        return () => {
-            sections.forEach((item) => {
-                const element = document.getElementById(item.id);
-                if(element)
-                    observer.unobserve(element); 
-            });
-        };
-        
-    }, []);
+        setActiveNav(activeId);
+    }, [activeId]);
 
     return (
         <nav>
