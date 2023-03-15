@@ -42,11 +42,23 @@
     ],
     "rules": {
       "no-console": "error",
-      "quotes": ["error", "single"],
+      "quotes": [
+        "error",
+        "single"
+      ],
       "prefer-const": "error",
-      "indent": ["warn", 4],
-      "comma-dangle": ["error", "always-multiline"],
-      "semi": ["warn", "always"]
+      "indent": [
+        "warn",
+        4
+      ],
+      "comma-dangle": [
+        "error",
+        "always-multiline"
+      ],
+      "semi": [
+        "warn",
+        "always"
+      ]
     }
   },
   "browserslist": {

@@ -1,10 +1,6 @@
-import React, { useCallback, useState } from 'react';
-import {
-    FiBook,
-    FiHome,
-    FiUser,
-    FiMessageSquare,
-} from 'react-icons/fi';
+import React, { useCallback, useEffect, useState } from 'react';
+
+import { sections } from '../../types';
 
 import './nav.css';
 
@@ -17,24 +13,65 @@ export const Nav: React.FC = () => {
         window.scrollTo(0, position);
     }, []);
 
+    const onResizeWindow = useCallback(() => {
+        sections.forEach((item) => {
+            const element = document.getElementById(item.id);
+            if(element) {
+                item.position = element.getBoundingClientRect().y + window.scrollY;
+            }
+        });
+    }, []);
+
+    useEffect(() => {
+        window.addEventListener('resize', onResizeWindow);
+
+        return () => {
+            window.removeEventListener('resize', onResizeWindow);
+        };
+    }, [onResizeWindow]);
+
+    useEffect(() => {
+
+        const observer = new IntersectionObserver((entries) => {
+            
+            entries.forEach((entry) => {
+                if(entry.isIntersecting) {
+                    setActiveNav(`#${entry.target.id}`);
+                }
+            });
+        }, {
+            threshold: 0.5,
+        });
+
+        sections.forEach((item) => {
+            const element = document.getElementById(item.id);
+            if(element) {
+                observer.observe(element);
+                item.position = element.getBoundingClientRect().y + window.scrollY;
+            }
+        });
+
+        return () => {
+            sections.forEach((item) => {
+                const element = document.getElementById(item.id);
+                if(element)
+                    observer.unobserve(element); 
+            });
+        };
+        
+    }, []);
+
     return (
         <nav>
-            <button 
-                onClick={() => onChangeSection('#home', 0)}
-                className={activeNav === '#home' ? 'active' : ''}
-            ><FiHome/></button>
-            <button 
-                onClick={() => onChangeSection('#about', 710)} 
-                className={activeNav === '#about' ? 'active' : ''}
-            ><FiUser/></button>
-            <button 
-                onClick={() => onChangeSection('#portfolio', 1450)}
-                className={activeNav === '#portfolio' ? 'active' : ''}
-            ><FiBook/></button>
-            <button 
-                onClick={() => onChangeSection('#contacts', 2160)} 
-                className={activeNav === '#contacts' ? 'active' : ''}
-            ><FiMessageSquare/></button>
+            {sections.map((item) => {
+                return <button
+                    key={item.key}
+                    onClick={() => onChangeSection(`#${item.id}`, item.position)}
+                    className={activeNav === `#${item.id}` ? 'active' : ''}
+                >
+                    <item.icon/>
+                </button>;
+            })}
         </nav>
     );
 };
