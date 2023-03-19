@@ -28,6 +28,7 @@ header {
 }
 
 h1 {
+    position: relative;
     font-size: 50px;
     font-weight: 400;
     text-transform: uppercase;
@@ -35,18 +36,46 @@ h1 {
     letter-spacing: 12px;
     padding: 0px;
     color: var(--color-primary-variant);
+
+    animation: title-right 1.5s ease-out;
+}
+
+@keyframes title-right {
+    0% {
+        right: 100px;
+        opacity: 0;
+    }
+    100% {
+        right: 0px;
+        opacity: 1;
+    }
 }
 
 .header__span {
+    position: relative;
     font-size: 50px;
     font-weight: 800;
     white-space: nowrap;
     letter-spacing: 12px;
     text-transform: uppercase;
     color: rgb(211, 231, 246);
+
+    animation: title-left 1.5s ease-out;
+}
+
+@keyframes title-left {
+    0% {
+        left: 300px;
+        opacity: 0;
+    }
+    100% {
+        left: 0px;
+        opacity: 1;
+    }
 }
 
 .header__h3 {
+    position: relative;
     text-transform: uppercase;
     white-space: nowrap;
     font-weight: 500;
@@ -54,6 +83,21 @@ h1 {
     margin-top: 100px;
     margin-bottom: -15px;
     color: var(--color-primary-variant);
+    opacity: 0;
+
+    animation: subtitle-top 1s ease-out 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes subtitle-top {
+    0% {
+        top: 30px;
+        opacity: 0;
+    }
+    100% {
+        top: 0px;
+        opacity: 1;
+    }
 }
 
 .header__socials {

@@ -1,11 +1,15 @@
 import React from 'react';
 
 import Me from '../../../assets/placeholder-man.jpg';
-
 import './about.css';
+
 import { AboutCard } from './AboutCard';
+import { useISObserver } from '../../hooks/useISObserver';
+import { sections } from '../../types';
 
 export const About: React.FC = () => {
+
+    const activeNav = useISObserver([sections[1]]);
 
     const aboutCards = [
         {id: 'a1', title: '15+', text: 'Years Programming'}, 
@@ -18,10 +22,10 @@ export const About: React.FC = () => {
             <div className='container'>
                 <h2>About</h2>
                 <div className='about__container'>
-                    <div className='about__me'>
-                        <img src={Me} alt='About' />
+                    <div className={`about__me ${activeNav === '#about' ? 'active' : ''}`}>
+                        <img src={Me} alt='Me' />
                     </div>
-                    <div className='about__content'>
+                    <div className={`about__content ${activeNav === '#about' ? 'active' : ''}`}>
                         <ul className='about__cards'>
                             {
                                 aboutCards.map((item) => {
