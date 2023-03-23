@@ -1,3 +1,3 @@
-# Getting Started with Portfolio Dmitro Kenev
+# Portfolio Dmitri Kenev
 
-it's my portfolio site with React and Redax on typescript
+it's my portfolio site with React, Redax, Nodejs on typescript

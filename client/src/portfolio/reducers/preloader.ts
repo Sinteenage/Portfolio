@@ -2,11 +2,11 @@ import { ActionType, getType, Reducer } from 'typesafe-actions';
 
 import * as actions from '../actions';
 import { getInitialPreloaderState } from '../states';
-import { LoadingState, PreloaderInitialState } from '../types';
+import { LoadingState, IPreloaderInitialState } from '../types';
 
 type Actions = ActionType<typeof actions>;
 
-export const PreloaderReducer: Reducer<PreloaderInitialState, Actions> = (state = getInitialPreloaderState(), action) => {
+export const PreloaderReducer: Reducer<IPreloaderInitialState, Actions> = (state = getInitialPreloaderState(), action) => {
     switch (action.type) {
 
     case getType(actions.loading.request):

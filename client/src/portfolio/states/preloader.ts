@@ -1,5 +1,5 @@
-import { LoadingState, PreloaderInitialState } from '../types';
+import { LoadingState, IPreloaderInitialState } from '../types';
 
-export function getInitialPreloaderState(): PreloaderInitialState {
+export function getInitialPreloaderState(): IPreloaderInitialState {
     return { loading: LoadingState.IDLE };
 }

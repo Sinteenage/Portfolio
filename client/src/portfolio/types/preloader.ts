@@ -1,4 +1,4 @@
-export interface PreloaderInitialState {
+export interface IPreloaderInitialState {
     loading: LoadingState;
 }
 

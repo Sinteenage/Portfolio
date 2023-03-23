@@ -31,7 +31,7 @@ export const Header: React.FC = () => {
                 return <Canvas key={index} height={height} draw={item}/>;
             })}
             <div className='container header__container'>
-                <h3 className='header__h3'>Web Developer</h3>
+                <span className='header__subtitle'>Web Developer</span>
                 <div className='header__title'>
                     <h1><span className='header__span'>Dmitry</span>Kenev</h1>
                 </div>
