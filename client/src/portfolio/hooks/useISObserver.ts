@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
-import { Section } from '../types';
+import { ISection } from '../types';
 
-export const useISObserver = (targets: Section[]) => {
+export const useISObserver = (targets: ISection[]) => {
     const [activeElementId, setActive] = useState('#home');
 
     useEffect(() => {

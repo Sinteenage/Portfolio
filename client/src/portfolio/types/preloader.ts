@@ -1,7 +1,3 @@
-export interface IPreloaderInitialState {
-    loading: LoadingState;
-}
-
 export const enum LoadingState {
     IDLE = 'IDLE',
     REQUEST = 'REQUEST',

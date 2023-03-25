@@ -1,2 +1,2 @@
-export * from './preloader';
+export * from './getWorks';
 export * from './sendMail';

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Me from '../../../assets/placeholder-man.jpg';
+import Me from '../../../assets/DmitryKenev.png';
 import './about.css';
 
 import { AboutCard } from './AboutCard';
