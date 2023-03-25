@@ -3,10 +3,19 @@
 }
 
 .work__items {
+    position: relative;
     margin: 50px 0px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
+    left: 300px;
+    opacity: 0;
+    transition: var(--transition-smooth);
+}
+
+.work__items.active {
+    opacity: 1;
+    left: 0px;
 }
 
 .worck__item{

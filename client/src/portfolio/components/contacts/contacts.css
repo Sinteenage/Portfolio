@@ -7,9 +7,18 @@
 }
 
 .contacts__options {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 15px;
+    left: -300px;
+    opacity: 0;
+    transition: var(--transition-smooth);
+}
+
+.contacts__options.active {
+    left: 0px;
+    opacity: 1;
 }
 
 .contact__option {
@@ -26,6 +35,18 @@ form {
     flex-direction: column;
     justify-content: left;
     gap: 19px;
+}
+
+.form__options {
+    position: relative;
+    left: 300px;
+    opacity: 0;
+    transition: var(--transition-smooth);
+}
+
+.form__options.active {
+    left: 0px;
+    opacity: 1;
 }
 
 input, textarea {

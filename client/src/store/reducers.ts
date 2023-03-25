@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 import { StateType } from 'typesafe-actions';
 
-import { PreloaderReducer } from '../portfolio/reducers/preloader';
+import { WorkItemsReducer } from '../portfolio/reducers/worckItems';
 
 export const reducers = combineReducers({
 
-    preloader: PreloaderReducer,
+    workItems: WorkItemsReducer,
 });
 
 export type AppState = StateType<typeof reducers>;

@@ -7,16 +7,34 @@
 }
 
 .about__me {
+    position: relative;
     width: 100%;
     overflow: hidden;
     aspect-ratio: 1/1;
     border-radius: 10px;
     display: grid;
     place-items: center;
+    left: -200px;
+    opacity: 0;
+    transition: var(--transition-smooth);
+}
+
+.about__me.active {
+    opacity: 1;
+    left: 0px;
 }
 
 .about__content {
+    position: relative;
     height: max-content;
+    left: 200px;
+    opacity: 0;
+    transition: var(--transition-smooth);
+}
+
+.about__content.active {
+    opacity: 1;
+    left: 0px;
 }
 
 .about__cards {

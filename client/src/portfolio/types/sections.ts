@@ -6,14 +6,14 @@ import {
     FiMessageSquare,
 } from 'react-icons/fi';
 
-export interface Section {
+export interface ISection {
     key: string,
     id: string,
     position: number,
     icon: IconType
 }
 
-export const sections: Array<Section> = [
+export const sections: Array<ISection> = [
     {
         key: 'secH',
         id: 'home',

@@ -1,27 +1,32 @@
 import React from 'react';
-
-import Img1 from '../../../assets/placeholder-image.jpg';
+import { useSelector } from 'react-redux';
 
 import './work.css';
 
+import { useISObserver } from '../../hooks/useISObserver';
+import { LoadingState, sections } from '../../types';
 import { WorkCard } from './WorkCard';
+import { getWorkItems } from '../../selectors';
+import { Preloader } from '../preloader/Preloader';
 
 export const Work: React.FC = () => {
 
-    const workItems = [Img1, Img1, Img1, Img1, Img1, Img1];
+    const activeNav = useISObserver([sections[2]]);
+
+    const { workItems, loading } = useSelector(getWorkItems);
 
     return (
         <section id='portfolio'>
             <div className='container'>
                 <h2>Portfolio</h2>
-                <ul className='work__items'>
-                    {workItems.map((item, index) => {
+                <ul className={`work__items ${activeNav === '#portfolio' ? 'active' : ''}`}>
+                    {(loading === LoadingState.REQUEST) ? <Preloader /> : workItems.length > 0 && workItems.map((item) => {
                         return <WorkCard 
-                            key={index}
-                            title={'Title'}
-                            text={'Description'}
-                            imgSrc={item}
-                            workHref={''}
+                            key={item.key}
+                            title={item.title}
+                            text={item.description}
+                            imgSrc={item.imgSrc}
+                            workHref={item.workHref}
                         />;
                     })}
                 </ul>

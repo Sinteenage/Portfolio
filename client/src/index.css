@@ -19,6 +19,7 @@
   --color-light: rgba(255, 255, 255, 0.7);
 
   --transition: all 400ms ease;
+  --transition-smooth: all 1.5s ease-out;
 
   --container-width-lg: 65%;
   --container-width-md: 85%;

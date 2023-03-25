@@ -4,4 +4,4 @@ import { AppState } from '../store/reducers';
 
 export const getAppState = (state: AppState) => state;
 
-export const getPreloader = createSelector(getAppState, ({ preloader }) => preloader);
+export const getWorkItems = createSelector(getAppState, ({ workItems }) => workItems);
