@@ -9,7 +9,7 @@ import { sections } from '../../types';
 
 export const About: React.FC = () => {
 
-    const activeNav = useISObserver([sections[1]]);
+    const activeNav = useISObserver([sections[1]], 0.4);
 
     const aboutCards = [
         {id: 'a1', title: '15+', text: 'Years Programming'}, 

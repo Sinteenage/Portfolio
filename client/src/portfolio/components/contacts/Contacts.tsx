@@ -12,7 +12,7 @@ export const Contacts: React.FC = () => {
     const dispatch = useDispatch();
 
     const [mailData, setMailData] = useState(defaultMailData);
-    const activeNav = useISObserver([sections[3]]);
+    const activeNav = useISObserver([sections[3]], 0.4);
 
     const contacts = [
         {id: 'c1', title: 'Email', text:'sinteenage@gmail.com', contactHref: 'mailto:sinteenage@gmail.com', titleHref: 'Send Message'},

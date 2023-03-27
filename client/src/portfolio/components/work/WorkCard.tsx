@@ -19,8 +19,7 @@ export const WorkCard: React.FC<WorkCardProps> = ({title, text, imgSrc = '', wor
                 </div>
                 <div className='work__description'>
                     <h5>{title}</h5>
-                    <small>{text}</small>
-                    <a className='btn btn-primary' href={workHref} target={'_blank'} rel='noreferrer'>Show</a>
+                    <small className='work__sub_description'>{text}</small>
                 </div>
             </>
         }</li>
