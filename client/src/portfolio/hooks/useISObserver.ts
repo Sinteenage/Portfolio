@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { ISection } from '../types';
 
-export const useISObserver = (targets: ISection[]) => {
+export const useISObserver = (targets: ISection[], threshold: number = 0.3) => {
     const [activeElementId, setActive] = useState('#home');
 
     useEffect(() => {
@@ -12,7 +12,7 @@ export const useISObserver = (targets: ISection[]) => {
                 entry.isIntersecting && setActive(`#${entry.target.id}`);
             });
         }, {
-            threshold: 0.3,
+            threshold,
         });
 
         targets.forEach((item) => {
@@ -27,7 +27,7 @@ export const useISObserver = (targets: ISection[]) => {
             });
         };
         
-    }, [targets]);
+    }, [targets, threshold]);
 
     return activeElementId;
 };

@@ -48,8 +48,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 180px;
+    margin-top: 150px;
     margin-bottom: 15px;
+}
+
+.work__sub_description {
+    text-align: start;
+    font-weight: 200;
+    line-height: 18px;
+    padding: 5px 18px 0px;
 }
 
 @media screen and (max-width: 1024px ){

@@ -11,7 +11,7 @@ import { Preloader } from '../preloader/Preloader';
 
 export const Work: React.FC = () => {
 
-    const activeNav = useISObserver([sections[2]]);
+    const activeNav = useISObserver([sections[2]], 0.4);
 
     const { workItems, loading } = useSelector(getWorkItems);
 

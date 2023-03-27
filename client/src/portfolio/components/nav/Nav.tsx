@@ -10,7 +10,7 @@ export const Nav: React.FC = () => {
 
     const [activeNav, setActiveNav] = useState('#home');
     const { width } = useResize();
-    const activeId = useISObserver(sections);
+    const activeId = useISObserver(sections, 0.8);
 
     const onChangeSection = useCallback((elementId: string, position: number) => {
         setActiveNav(elementId);
