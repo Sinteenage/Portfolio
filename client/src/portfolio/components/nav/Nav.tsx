@@ -1,16 +1,20 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import { useISObserver } from '../../hooks/useISObserver';
 import { useResize } from '../../hooks/useResize';
+import { getWorkItems } from '../../selectors';
 import { sections } from '../../types';
 
 import './nav.css';
 
 export const Nav: React.FC = () => {
 
+    const { loading } = useSelector(getWorkItems);
+
     const [activeNav, setActiveNav] = useState('#home');
     const { width } = useResize();
-    const activeId = useISObserver(sections, 0.8);
+    const activeId = useISObserver(sections, 0.5);
 
     const onChangeSection = useCallback((elementId: string, position: number) => {
         setActiveNav(elementId);
@@ -23,7 +27,7 @@ export const Nav: React.FC = () => {
 
             element && (item.position = element.offsetTop);
         });
-    }, [width]);
+    }, [width, loading]);
 
     useEffect(() => {
         setActiveNav(activeId);

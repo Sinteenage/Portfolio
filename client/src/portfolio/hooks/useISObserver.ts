@@ -3,13 +3,16 @@ import { useEffect, useState } from 'react';
 import { ISection } from '../types';
 
 export const useISObserver = (targets: ISection[], threshold: number = 0.3) => {
-    const [activeElementId, setActive] = useState('#home');
 
+    const [activeElementId, setActive] = useState('#home');
+    
     useEffect(() => {
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
-                entry.isIntersecting && setActive(`#${entry.target.id}`);
+                if(entry.isIntersecting) {
+                    setActive(`#${entry.target.id}`);
+                }
             });
         }, {
             threshold,
@@ -26,7 +29,6 @@ export const useISObserver = (targets: ISection[], threshold: number = 0.3) => {
                 element && observer.unobserve(element); 
             });
         };
-        
     }, [targets, threshold]);
 
     return activeElementId;

@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 export const useResize = () => {
     const [size, setSize] = useState({width: window.innerWidth, height: window.innerHeight});
-
-    const onResize = () => {
+    
+    const onResize = useCallback(() => {
         setSize({width: window.innerWidth, height: window.innerHeight});
-    };
+    }, []);
 
     useEffect(() => {
         window.addEventListener('resize', onResize);
@@ -13,7 +13,7 @@ export const useResize = () => {
         return () => {
             window.removeEventListener('resize', onResize);
         };
-    }, []);
+    }, [onResize]);
 
     return size;
 };

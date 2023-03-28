@@ -1,4 +1,3 @@
-import Img from '../../assets/placeholder-image.jpg';
 import { LoadingState } from './preloader';
 
 export interface IWorkItemsState {
@@ -18,6 +17,6 @@ export const defaultWorkItem: IWorkItem = {
     key: '',
     title: '',
     description: '',
-    imgSrc: Img,
+    imgSrc: '',
     workHref: '',
 };

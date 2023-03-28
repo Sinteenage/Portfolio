@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Me from '../../../assets/DmitryKenev.png';
 import './about.css';
 
 import { AboutCard } from './AboutCard';
@@ -23,7 +22,7 @@ export const About: React.FC = () => {
                 <h2>About</h2>
                 <div className='about__container'>
                     <div className={`about__me ${activeNav === '#about' ? 'active' : ''}`}>
-                        <img src={Me} alt='Me' />
+                        <img src={'/media/DmitryKenev.png'} alt='Me' />
                     </div>
                     <div className={`about__content ${activeNav === '#about' ? 'active' : ''}`}>
                         <ul className='about__cards'>

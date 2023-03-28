@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useRef } from 'react';
-import { useResize } from '../../hooks/useResize';
+import { useSelector } from 'react-redux';
 
+import { useResize } from '../../hooks/useResize';
+import { getWorkItems } from '../../selectors';
 import { About } from '../about/About';
 import { Contacts } from '../contacts/Contacts';
 import { Footer } from '../footer/Footer';
@@ -10,6 +12,8 @@ import { Work } from '../work/Work';
 import './nav.css';
 
 export const ScrollWrapper: React.FC = () => {
+
+    const { loading } = useSelector(getWorkItems);
 
     const body = document.body;
     const wrapperRef = useRef<HTMLDivElement | null>(null);
@@ -38,7 +42,7 @@ export const ScrollWrapper: React.FC = () => {
 
         body.style.height = Math.floor(heightRef.current) + 'px';
 
-    }, [body.style, width]);
+    }, [body.style, width, loading]);
 
     useEffect(() => {
         smoothScroll();
