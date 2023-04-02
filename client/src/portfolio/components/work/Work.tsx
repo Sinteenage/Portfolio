@@ -19,17 +19,20 @@ export const Work: React.FC = () => {
         <section id='portfolio'>
             <div className='container'>
                 <h2>Portfolio</h2>
-                <ul className={`work__items ${activeNav === '#portfolio' ? 'active' : ''}`}>
-                    {(loading === LoadingState.REQUEST) ? <Preloader /> : workItems.length > 0 && workItems.map((item) => {
-                        return <WorkCard 
-                            key={item.key}
-                            title={item.title}
-                            text={item.description}
-                            imgSrc={item.imgSrc}
-                            workHref={item.workHref}
-                        />;
-                    })}
-                </ul>
+                { (loading === LoadingState.REQUEST) ? 
+                    <Preloader /> :
+                    <ul className={`work__items ${activeNav === '#portfolio' ? 'active' : ''}`}>
+                        { workItems.length > 0 && workItems.map((item) => {
+                            return <WorkCard 
+                                key={item.key}
+                                title={item.title}
+                                text={item.description}
+                                imgSrc={item.imgSrc}
+                                workHref={item.workHref}
+                            />;
+                        })}
+                    </ul>
+                }
             </div>
         </section>
     );

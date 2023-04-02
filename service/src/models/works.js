@@ -1,12 +1,4 @@
-interface IWork {
-    key: string,
-    title: string,
-    description: string,
-    imgSrc: string,
-    workHref: string,
-}
-
-export const works: IWork[] = [
+const works = [
     {
         key: 'w1',
         title: 'Caesars Casino',
@@ -34,5 +26,21 @@ export const works: IWork[] = [
         description: 'Interactive 3D closet constructor in browser for company "Perviy Shkaf"',
         imgSrc: '/media/first_closet.jpg',
         workHref: '',
-    }
-]
+    },
+    {
+        key: 'w5',
+        title: 'Shunok',
+        description: 'Interactive 3D tire shop online "Shunok" with the ability to change tires, rims, color on car models',
+        imgSrc: '/media/shunok.jpg',
+        workHref: '',
+    },
+    {
+        key: 'w6',
+        title: 'Sofa Configurator',
+        description: 'Interactive 3D sofa catalog configurator online',
+        imgSrc: '/media/sofa.jpg',
+        workHref: '',
+    },
+];
+
+module.exports = works;
