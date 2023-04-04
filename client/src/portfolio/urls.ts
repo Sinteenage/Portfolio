@@ -1,4 +1,5 @@
-export const BASE_API_URL = '/api';
+export const BASE_URL = 'https://service.dkenev.com';
+export const API_URL = `${BASE_URL}/api`;
 
-export const SEND_MAIL_URL = `${BASE_API_URL}/mailSend`;
-export const WORKS_URL = `${BASE_API_URL}/works`;
+export const SEND_MAIL_URL = `${API_URL}/mailSend`;
+export const WORKS_URL = `${API_URL}/works`;

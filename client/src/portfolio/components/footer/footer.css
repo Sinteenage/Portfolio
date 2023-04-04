@@ -1,9 +1,21 @@
 .section__footer {
+    position: relative;
     background: rgb(27, 39, 69);
+    bottom: 2px;
 }
 
 .container__footer {
     padding: 20px 0px;
     display: flex;
-    justify-content: left;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 600px ) {
+    .section__footer {
+        margin-bottom: 0px;
+    }
+    .container__footer {
+        display: flex;
+        flex-direction: column;
+    }
 }
