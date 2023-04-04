@@ -33,6 +33,10 @@ nav button.active {
     color: var(--color-white);
 }
 
+nav button.dis {
+    color: rgba(255, 255, 255, 0.4);
+}
+
 .container__smooth-sclroll {
     position: fixed;
     z-index: 5;

@@ -1,7 +1,5 @@
-import { MutableRefObject, useCallback, useRef } from 'react';
+import { MutableRefObject, useRef } from 'react';
 import { WaveProps } from '../types';
-
-import { drawWave } from '../utils/drawWave';
 
 export const useWave = (
     widthRef: MutableRefObject<number>, 
@@ -11,22 +9,34 @@ export const useWave = (
     const phaseRef = useRef(0);
     const { freqancy, phaseCorection, color, amplitude, angle } = waveProps;
 
-    return useCallback((
+    return (
         context: CanvasRenderingContext2D,
     ) => {
 
-        drawWave(
-            context, 
-            widthRef.current,
-            height,
-            freqancy,
-            phaseRef.current + phaseCorection,
-            color,
-            amplitude,
-            angle,
-        );
+        context.clearRect(0, 0, widthRef.current, height);
+        context.beginPath();
+        context.fillStyle = color;
+
+        for (let x = 0; x <  widthRef.current; x++) {
+
+            const _amplitude = (widthRef.current - x) * amplitude;
+            const y = (height / 2 + _amplitude * Math.sin(freqancy * x + phaseRef.current + phaseCorection)) + x * angle;
+
+            if (x === 0) {
+                context.moveTo(0, height);
+                context.lineTo(x, y);
+            } else {
+                context.lineTo(x, y);
+            }
+
+            if(x ===  widthRef.current - 1){
+                context.lineTo( widthRef.current, height);
+            }
+        }
+
+        context.fill();
 
         phaseRef.current += 0.008;
 
-    }, [widthRef, height, freqancy, phaseCorection, color, amplitude, angle]);
+    };
 };

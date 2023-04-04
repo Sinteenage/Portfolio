@@ -20,8 +20,8 @@ export const Header: React.FC = () => {
     }, [width]);
 
     const waves = [
-        useWave(widthRef, height, waveThree), 
-        useWave(widthRef, height, waveTwo), 
+        useWave(widthRef, height, waveThree),
+        useWave(widthRef, height, waveTwo),
         useWave(widthRef, height, waveOne),
     ];
 

@@ -13,6 +13,7 @@ type CanvasProps = {
 
 export const Canvas: React.FC<CanvasProps> = ({ draw, height }) => {
 
+    const animIdRef = useRef(0);
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
     const animateDraw = useCallback(() => {
@@ -30,11 +31,15 @@ export const Canvas: React.FC<CanvasProps> = ({ draw, height }) => {
 
         draw(context);
         
-        requestAnimationFrame(animateDraw);
+        animIdRef.current = requestAnimationFrame(animateDraw);
     }, [draw]);
 
     useEffect(() => {
-        animateDraw();
+        animIdRef.current = requestAnimationFrame(animateDraw);
+
+        return () => {
+            cancelAnimationFrame(animIdRef.current);
+        };
     }, [animateDraw]);
 
     return ( 

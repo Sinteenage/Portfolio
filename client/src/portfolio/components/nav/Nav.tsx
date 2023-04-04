@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { useISObserver } from '../../hooks/useISObserver';
@@ -10,11 +10,18 @@ import './nav.css';
 
 export const Nav: React.FC = () => {
 
+    const treshholdRef = useRef(0.5);
+
     const { loading } = useSelector(getWorkItems);
 
     const [activeNav, setActiveNav] = useState('#home');
     const { width } = useResize();
-    const activeId = useISObserver(sections, 0.5);
+
+    useEffect(() => {
+        (width < 400) ? treshholdRef.current = 0.2 : treshholdRef.current = 0.5;
+    },[width]);
+
+    const activeId = useISObserver(sections, treshholdRef.current);
 
     const onChangeSection = useCallback((elementId: string, position: number) => {
         setActiveNav(elementId);
@@ -39,7 +46,7 @@ export const Nav: React.FC = () => {
                 return <button
                     key={item.key}
                     onClick={() => onChangeSection(`#${item.id}`, item.position)}
-                    className={activeNav === `#${item.id}` ? 'active' : ''}
+                    className={activeNav === `#${item.id}` ? 'active' : 'dis'}
                 >
                     <item.icon/>
                 </button>;
