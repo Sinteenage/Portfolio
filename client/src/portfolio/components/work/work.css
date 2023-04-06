@@ -1,5 +1,5 @@
 .container__portfolio {
-    padding-top: 50px;
+    overflow: hidden;
 }
 
 .work__items {

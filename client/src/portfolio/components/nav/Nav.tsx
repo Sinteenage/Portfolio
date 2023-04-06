@@ -18,7 +18,7 @@ export const Nav: React.FC = () => {
     const { width } = useResize();
 
     useEffect(() => {
-        (width < 400) ? treshholdRef.current = 0.2 : treshholdRef.current = 0.5;
+        (width < 400) ? treshholdRef.current = 0.3 : treshholdRef.current = 0.5;
     },[width]);
 
     const activeId = useISObserver(sections, treshholdRef.current);
