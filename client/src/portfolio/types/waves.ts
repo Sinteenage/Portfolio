@@ -6,7 +6,7 @@ export interface WaveProps {
     angle: number;
 };
 
-export const waveOne: WaveProps = {
+const waveOne: WaveProps = {
     freqancy: 0.003,
     phaseCorection: 0,
     color: 'rgba(0, 36, 72, 0.3)',
@@ -14,7 +14,7 @@ export const waveOne: WaveProps = {
     angle: 0.1,
 };
 
-export const waveTwo: WaveProps = {
+const waveTwo: WaveProps = {
     freqancy: 0.003,
     phaseCorection: 5.4,
     color: 'rgba(0, 36, 72, 0.4)',
@@ -22,10 +22,16 @@ export const waveTwo: WaveProps = {
     angle: 0.1,
 };
 
-export const waveThree: WaveProps = {
+const waveThree: WaveProps = {
     freqancy: 0.003,
     phaseCorection: 4.3,
     color: 'rgba(0, 36, 72, 0.5)',
     amplitude: 0.07,
     angle: 0.1,
 };
+
+export const waves: Array<WaveProps> = [
+    waveOne,
+    waveTwo,
+    waveThree,
+];

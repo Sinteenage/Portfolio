@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 
 import './canvas.css';
-import { wave } from '../../hooks/useWave';
-import { waveOne, waveThree, waveTwo } from '../../types';
+import { wave } from '../../utils/wave';
+import { waves } from '../../types';
 import { useAnimationFrame } from '../../hooks/useAnimation';
 
 type CanvasProps = {
@@ -40,9 +40,7 @@ export const Canvas: React.FC<CanvasProps> = ({ height }) => {
 
         context.clearRect(0, 0, widthRef.current, height);
 
-        wave(context, widthRef, height, phaseRef, waveThree);
-        wave(context, widthRef, height, phaseRef, waveTwo);
-        wave(context, widthRef, height, phaseRef, waveOne);
+        waves.forEach(item => wave(context, widthRef, height, phaseRef, item));
 
     }, [height]);
 
