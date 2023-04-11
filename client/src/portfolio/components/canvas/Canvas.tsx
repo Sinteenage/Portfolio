@@ -1,22 +1,22 @@
-import React, {
-    useCallback,
-    useEffect,
-    useRef,
-} from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 
 import './canvas.css';
+import { wave } from '../../utils/wave';
+import { waves } from '../../types';
+import { useAnimationFrame } from '../../hooks/useAnimation';
 
 type CanvasProps = {
-    draw: (context: CanvasRenderingContext2D) => void;
     height: number;
 }
 
-export const Canvas: React.FC<CanvasProps> = ({ draw, height }) => {
+export const Canvas: React.FC<CanvasProps> = ({ height }) => {
 
-    const animIdRef = useRef(0);
+    const widthRef = useRef(window.innerWidth);
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
+    const contextRef = useRef<CanvasRenderingContext2D | null>(null);
+    const phaseRef = useRef(0);
 
-    const animateDraw = useCallback(() => {
+    useEffect(() => {
         const canvas = canvasRef.current;
         if(!canvas){
             return;
@@ -29,18 +29,22 @@ export const Canvas: React.FC<CanvasProps> = ({ draw, height }) => {
             return;
         }
 
-        draw(context);
-        
-        animIdRef.current = requestAnimationFrame(animateDraw);
-    }, [draw]);
+        contextRef.current = context;
+    }, []);
 
-    useEffect(() => {
-        animIdRef.current = requestAnimationFrame(animateDraw);
+    const animateDraw = useCallback(() => {
+        const context = contextRef.current;
+        if(!context){
+            return;
+        }
 
-        return () => {
-            cancelAnimationFrame(animIdRef.current);
-        };
-    }, [animateDraw]);
+        context.clearRect(0, 0, widthRef.current, height);
+
+        waves.forEach(item => wave(context, widthRef, height, phaseRef, item));
+
+    }, [height]);
+
+    useAnimationFrame(animateDraw, 25);
 
     return ( 
         <>

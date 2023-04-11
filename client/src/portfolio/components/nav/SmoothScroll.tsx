@@ -10,16 +10,15 @@ import { Header } from '../header/Header';
 import { Work } from '../work/Work';
 
 import './nav.css';
+import { useAnimationFrame } from '../../hooks/useAnimation';
 
 export const ScrollWrapper: React.FC = () => {
-
-    const animIdRef = useRef(0);
 
     const { loading } = useSelector(getWorkItems);
 
     const body = document.body;
     const wrapperRef = useRef<HTMLDivElement | null>(null);
-    const speed = 0.05;
+    const speed = 0.07;
     const heightRef = useRef(0);
     const offsetRef = useRef(0);
     const { width } = useResize();
@@ -34,7 +33,6 @@ export const ScrollWrapper: React.FC = () => {
             wrapperRef.current.style.transform = scroll;
         }
 
-        animIdRef.current = requestAnimationFrame(smoothScroll);
     }, []);
 
     useEffect(() => {
@@ -46,13 +44,7 @@ export const ScrollWrapper: React.FC = () => {
 
     }, [body.style, width, loading]);
 
-    useEffect(() => {
-        animIdRef.current = requestAnimationFrame(smoothScroll);
-
-        return () => {
-            cancelAnimationFrame(animIdRef.current);
-        };
-    }, [smoothScroll]);
+    useAnimationFrame(smoothScroll, 64);
 
     return (
         <div ref={wrapperRef} className='container__smooth-sclroll'>
