@@ -18,7 +18,7 @@ server.use(helmet());
 server.use(compression());
 
 server.listen(port, () => {
-    console.log(`listen port: ${port}`);
+    // console.log(`listen port: ${port}`);
 }).on('error', (error) => {
     console.log(`service error: ${error}`);
 });
