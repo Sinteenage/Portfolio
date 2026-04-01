@@ -42,7 +42,7 @@ export const ScrollWrapper: React.FC = () => {
 
         body.style.height = Math.floor(heightRef.current) + 'px';
 
-    }, [body.style, width, loading]);
+    }, [width, loading]);
 
     useAnimationFrame(smoothScroll, 64);
 

@@ -8,7 +8,7 @@ export const wave = (
     phaseRef: MutableRefObject<number>,
     waveProps: WaveProps,
 ) => {
-    const { freqancy, phaseCorection, color, amplitude, angle } = waveProps;
+    const { frequency, phaseCorrection, color, amplitude, angle } = waveProps;
 
     context.beginPath();
     context.fillStyle = color;
@@ -16,7 +16,7 @@ export const wave = (
     for (let x = 0; x <  widthRef.current; x++) {
 
         const _amplitude = (widthRef.current - x) * amplitude;
-        const y = (height / 2 + _amplitude * Math.sin(freqancy * x + phaseRef.current + phaseCorection)) + x * angle;
+        const y = (height / 2 + _amplitude * Math.sin(frequency * x + phaseRef.current + phaseCorrection)) + x * angle;
 
         if (x === 0) {
             context.moveTo(0, height);

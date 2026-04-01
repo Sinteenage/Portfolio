@@ -11,5 +11,9 @@ export const getWorksRequest = async (): Promise<IWorkItem[]> => {
         method: 'GET',
     });
 
+    if (!result.ok) {
+        throw new Error(`HTTP error: ${result.status}`);
+    }
+
     return await result.json();
 };

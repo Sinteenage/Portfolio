@@ -23,6 +23,7 @@ export const Canvas: React.FC<CanvasProps> = ({ height }) => {
         }
 
         canvas.width = canvas.clientWidth;
+        widthRef.current = canvas.clientWidth;
 
         const context = canvas.getContext('2d');
         if(!context){

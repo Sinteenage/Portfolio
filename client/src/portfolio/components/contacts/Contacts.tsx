@@ -55,24 +55,27 @@ export const Contacts: React.FC = () => {
                     <form onSubmit={handleSendMessage} className={`form__options ${activeNav === '#contacts' ? 'active' : ''}`}>
                         <input
                             onChange={handleChangeMessage}
-                            type='text' 
-                            name='name' 
-                            placeholder='Your First Name Last Name *' 
+                            type='text'
+                            name='name'
+                            placeholder='Your First Name Last Name *'
+                            aria-label='Your First Name Last Name'
                             required
                         />
                         <input
                             onChange={handleChangeMessage}
-                            type='email' 
-                            name='email' 
-                            placeholder='Your Email *' 
+                            type='email'
+                            name='email'
+                            placeholder='Your Email *'
+                            aria-label='Your Email'
                             required
                         />
                         <textarea
                             onChange={handleChangeMessage}
-                            name='message' 
-                            id='message' 
-                            rows={15} 
-                            placeholder='Message *' 
+                            name='message'
+                            id='message'
+                            rows={15}
+                            placeholder='Message *'
+                            aria-label='Message'
                             required
                         ></textarea>
                         <button type='submit' className='btn btn-primary'>Send Message</button>

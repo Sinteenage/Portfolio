@@ -24,10 +24,7 @@ export const useISObserver = (targets: ISection[], threshold: number = 0.3) => {
         });
 
         return () => {
-            targets.forEach((item) => {
-                const element = document.getElementById(item.id);
-                element && observer.unobserve(element); 
-            });
+            observer.disconnect();
         };
     }, [targets, threshold]);
 

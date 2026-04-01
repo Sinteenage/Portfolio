@@ -23,16 +23,21 @@ export const Nav: React.FC = () => {
 
     const activeId = useISObserver(sections, treshholdRef.current);
 
-    const onChangeSection = useCallback((elementId: string, position: number) => {
+    const positionsRef = useRef<Record<string, number>>({});
+
+    const onChangeSection = useCallback((elementId: string) => {
         setActiveNav(elementId);
-        window.scrollTo(0, position);
+        const id = elementId.replace('#', '');
+        window.scrollTo(0, positionsRef.current[id] ?? 0);
     }, []);
 
     useEffect(() => {
         sections.forEach((item) => {
             const element = document.getElementById(item.id);
 
-            element && (item.position = element.offsetTop);
+            if (element) {
+                positionsRef.current[item.id] = element.offsetTop;
+            }
         });
     }, [width, loading]);
 
@@ -45,8 +50,9 @@ export const Nav: React.FC = () => {
             {sections.map((item) => {
                 return <button
                     key={item.key}
-                    onClick={() => onChangeSection(`#${item.id}`, item.position)}
+                    onClick={() => onChangeSection(`#${item.id}`)}
                     className={activeNav === `#${item.id}` ? 'active' : 'dis'}
+                    aria-label={item.id}
                 >
                     <item.icon/>
                 </button>;
